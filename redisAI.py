@@ -2,7 +2,7 @@ import cv2
 import mediapipe as mp
 import time
 import numpy as np
-import redis  # Redis 모듈 추가
+import redis
 
 # Mediapipe 솔루션 초기화
 mp_face_mesh = mp.solutions.face_mesh
