@@ -1,6 +1,6 @@
-package com.dasom.demo_whick.config;
+package com.dasom.whick.config;
 
-import com.dasom.demo_whick.service.DirectionService;
+import com.dasom.whick.service.DirectionService;
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.stereotype.Component;

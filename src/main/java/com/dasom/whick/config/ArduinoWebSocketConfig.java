@@ -1,8 +1,8 @@
-package com.dasom.demo_whick.config;
+package com.dasom.whick.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.*;
-import com.dasom.demo_whick.handler.DirectionWebSocketHandler;
+import com.dasom.whick.handler.DirectionWebSocketHandler;
 
 @Configuration
 @EnableWebSocket

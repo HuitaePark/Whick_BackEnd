@@ -1,4 +1,4 @@
-package com.dasom.demo_whick.handler;
+package com.dasom.whick.handler;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.*;

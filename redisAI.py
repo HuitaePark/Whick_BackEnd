@@ -3,6 +3,7 @@ import mediapipe as mp
 import time
 import numpy as np
 import redis
+import json
 
 # Mediapipe 솔루션 초기화
 mp_face_mesh = mp.solutions.face_mesh
@@ -46,6 +47,9 @@ with mp_face_mesh.FaceMesh(
 
         direction = "none"  # 방향 초기화
         yaw = None  # yaw 초기화
+
+        left = False  # left 초기화
+        right = False  # right 초기화
 
         if results.multi_face_landmarks:
             for face_landmarks in results.multi_face_landmarks:
@@ -99,6 +103,8 @@ with mp_face_mesh.FaceMesh(
                     if direction not in ["stop", "unknown"]:
                         if yaw <= -160 or yaw >= 160:
                             direction = "front"
+                            left = False
+                            right = False
                         elif yaw < 0:
                             if yaw > -115:
                                 direction = "left++"
@@ -106,6 +112,8 @@ with mp_face_mesh.FaceMesh(
                                 direction = "left+"
                             elif yaw > -160:
                                 direction = "left"
+                            left = True
+                            right = False
                         else:
                             if yaw < 115:
                                 direction = "right++"
@@ -113,11 +121,17 @@ with mp_face_mesh.FaceMesh(
                                 direction = "right+"
                             elif yaw < 160:
                                 direction = "right"
+                            left = False
+                            right = True
 
                 except (IndexError, AttributeError):
                     direction = "unknown"
+                    left = False
+                    right = False
         else:
             direction = "unknown"
+            left = False
+            right = False
 
         # 방향 정보 구성
         if yaw is not None:
@@ -127,7 +141,19 @@ with mp_face_mesh.FaceMesh(
 
         # 방향 정보가 변경되었을 때만 Redis에 발행
         if new_direction != previous_direction:
-            redis_client.publish('direction_channel', new_direction)
+            # JSON 데이터 생성
+            direction_data = {
+                "type": "direction",
+                "data": {
+                    "left": left,
+                    "right": right
+                }
+            }
+            # JSON 문자열로 직렬화
+            direction_json = json.dumps(direction_data)
+            # Redis에 JSON 문자열 발행
+            redis_client.publish('direction_channel', direction_json)
+
             previous_direction = new_direction
 
         # 방향 및 각도 텍스트 표시

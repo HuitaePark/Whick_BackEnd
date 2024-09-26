@@ -1,6 +1,7 @@
-package com.dasom.demo_whick.service;
+package com.dasom.whick.service;
 
-import com.dasom.demo_whick.handler.DirectionWebSocketHandler;
+import com.dasom.whick.handler.DirectionWebSocketHandler;
+
 import lombok.Getter;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
