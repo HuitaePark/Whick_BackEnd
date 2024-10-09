@@ -15,9 +15,17 @@ if not cap.isOpened():
     print("카메라를 찾을 수 없습니다.")
     exit()
 
-# Redis 클라이언트 초기화
-redis_client = redis.Redis(host='localhost', port=6379, db=0)
+# Redis 클라우드 연결 정보
+REDIS_HOST = 'redis-10697.c294.ap-northeast-1-2.ec2.redns.redis-cloud.com'
+REDIS_PORT = 10697
+REDIS_DB = 0
+REDIS_PASSWORD = 'KNC4x7DvRZEoVMvljU0iX1D3yGHuoIvm'  # 필요 시
 
+# Redis 클라이언트 연결
+redis_client = redis.Redis(
+  host='redis-10697.c294.ap-northeast-1-2.ec2.redns.redis-cloud.com',
+  port=10697,
+  password='KNC4x7DvRZEoVMvljU0iX1D3yGHuoIvm')
 previous_direction = None  # 이전 방향 저장 변수
 
 # Mediapipe 얼굴 메쉬 설정
