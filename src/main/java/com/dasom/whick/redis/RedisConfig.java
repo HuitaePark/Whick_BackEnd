@@ -1,6 +1,5 @@
-package com.dasom.whick.config;
+package com.dasom.whick.redis;
 
-import com.dasom.whick.controller.RedisMessageSubscriber;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.*;
