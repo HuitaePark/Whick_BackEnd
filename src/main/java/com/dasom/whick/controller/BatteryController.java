@@ -1,7 +1,7 @@
 package com.dasom.whick.controller;
 
 import com.dasom.whick.dto.BatteryDto;
-import com.dasom.whick.model.Battery;
+import com.dasom.whick.entity.Battery;
 import com.dasom.whick.repository.BatteryRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +10,11 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/battery")
+@RequestMapping("/battery")
 public class BatteryController {
 
     private final BatteryRepository batteryRepository;
-    private SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);
+    private final SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);
 
     private static final int BATTERY_THRESHOLD = 20;  // 임계치 설정
 

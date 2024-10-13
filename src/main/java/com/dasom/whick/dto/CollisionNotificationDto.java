@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CollisionNotification {
+public class CollisionNotificationDto {
     private String type;
     private CollisionData data;
 

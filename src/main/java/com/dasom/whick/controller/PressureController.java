@@ -1,7 +1,7 @@
 package com.dasom.whick.controller;
 
 import com.dasom.whick.dto.PressureDto;
-import com.dasom.whick.model.Pressure;
+import com.dasom.whick.entity.Pressure;
 import com.dasom.whick.repository.PressureRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.io.IOException;
 public class PressureController {
 
     private final PressureRepository pressureRepository;
-    private SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);
+    private final SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);
 
     private static final float PRESSURE_THRESHOLD = 28.0f;  // 임계치 설정
 

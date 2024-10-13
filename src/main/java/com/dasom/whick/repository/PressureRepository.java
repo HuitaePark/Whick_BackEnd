@@ -1,6 +1,6 @@
 package com.dasom.whick.repository;
 
-import com.dasom.whick.model.Pressure;
+import com.dasom.whick.entity.Pressure;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

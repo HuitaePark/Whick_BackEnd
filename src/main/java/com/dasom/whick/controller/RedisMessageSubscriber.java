@@ -1,4 +1,4 @@
-package com.dasom.whick.config;
+package com.dasom.whick.controller;
 
 import com.dasom.whick.service.DirectionService;
 import org.springframework.data.redis.connection.Message;
