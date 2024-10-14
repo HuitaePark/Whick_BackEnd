@@ -15,10 +15,6 @@ public class DirectionService {
     private volatile String currentDirection = "unknown";
     private final List<SseEmitter> emitters = new CopyOnWriteArrayList<>();
 
-    public DirectionService() {
-        // 기본 생성자
-    }
-
     /**
      * SSE 클라이언트를 등록합니다.
      *
@@ -46,7 +42,6 @@ public class DirectionService {
 
         // 프론트엔드로 방향 정보 전송
         try {
-            // 데이터 포맷을 필요에 맞게 조정할 수 있습니다.
             String data = "{\"direction\":\"" + direction + "\"}";
             for (SseEmitter emitter : emitters) {
                 emitter.send(SseEmitter.event()
