@@ -1,6 +1,8 @@
 package com.dasom.whick.service;
 
-import com.dasom.whick.dto.CollisionNotificationDto; // 필요한 경우
+import com.dasom.whick.dto.DirectionData;
+import com.dasom.whick.dto.DirectionEvent;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
@@ -14,6 +16,7 @@ public class DirectionService {
     @Getter
     private volatile String currentDirection = "unknown";
     private final List<SseEmitter> emitters = new CopyOnWriteArrayList<>();
+    private final ObjectMapper objectMapper = new ObjectMapper(); // Jackson ObjectMapper 사용
 
     /**
      * SSE 클라이언트를 등록합니다.
@@ -32,33 +35,44 @@ public class DirectionService {
     }
 
     /**
-     * 방향을 업데이트하고 모든 클라이언트에게 SSE로 전송합니다.
+     * Redis에서 수신한 메시지를 처리합니다.
      *
-     * @param direction 업데이트할 방향
+     * @param message Redis에서 수신한 메시지
      */
-    public void updateDirection(String direction) {
-        this.currentDirection = direction;
-        System.out.println("업데이트된 방향: " + direction);
-
-        // 프론트엔드로 방향 정보 전송
+    public void handleMessage(String message) {
         try {
-            String data = "{\"direction\":\"" + direction + "\"}";
+            // Redis에서 받은 메시지를 DirectionEvent 객체로 변환
+            DirectionEvent event = objectMapper.readValue(message, DirectionEvent.class);
+
+            // 현재 방향 업데이트
+            this.currentDirection = event.getData().toString(); // 필요에 따라 수정
+
+            // 프론트엔드로 방향 정보 전송
             for (SseEmitter emitter : emitters) {
-                emitter.send(SseEmitter.event()
-                        .name("direction-event")
-                        .data(data));
+                emitter.send(
+                        SseEmitter.event()
+                                .name("direction-event")
+                                .data(event)
+                );
             }
+
+            System.out.println("업데이트된 방향: " + event);
         } catch (IOException e) {
             // 오류 발생 시 해당 emitter 제거
             emitters.removeIf(emitter -> {
                 try {
-                    emitter.send(SseEmitter.event().name("error").data("연결 오류"));
+                    emitter.send(
+                            SseEmitter.event()
+                                    .name("error")
+                                    .data("연결 오류")
+                    );
                     emitter.complete();
                 } catch (IOException ex) {
                     return true;
                 }
                 return false;
             });
+            e.printStackTrace();
         }
     }
 }
