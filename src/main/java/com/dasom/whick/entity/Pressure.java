@@ -14,6 +14,6 @@ public class Pressure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer pressure;
+    private Float pressure;
     private String status;
 }
