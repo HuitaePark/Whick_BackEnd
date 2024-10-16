@@ -17,7 +17,7 @@ public class PressureController {
     private final PressureRepository pressureRepository;
     private final SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);
 
-    private static final float PRESSURE_THRESHOLD = 28.0f;  // 임계치 설정
+    private static final int PRESSURE_THRESHOLD = 28;  // 임계치 설정
 
     public PressureController(PressureRepository pressureRepository) {
         this.pressureRepository = pressureRepository;
