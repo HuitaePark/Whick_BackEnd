@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @RestController
 @RequestMapping("/pressure")
 public class PressureController {
 
     private final PressureRepository pressureRepository;
-    private final SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);
+    private final List<SseEmitter> emitters = new CopyOnWriteArrayList<>();
 
     private static final int PRESSURE_THRESHOLD = 28;  // 임계치 설정
 
@@ -34,13 +36,15 @@ public class PressureController {
 
             // 임계치 이하일 경우 SSE를 통해 프론트엔드로 알림 전송
             if (pressure.getPressure() < PRESSURE_THRESHOLD) {
-                try {
-                    emitter.send(pressureDto);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                            .body("Failed to send SSE notification");
-                }
+                this.emitters.forEach(emitter -> {
+                    try {
+                        emitter.send(SseEmitter.event()
+                                .name("pressure-event")
+                                .data(pressureDto));
+                    } catch (IOException e) {
+                        emitters.remove(emitter);
+                    }
+                });
             }
 
             return ResponseEntity.ok("Pressure data received");
@@ -53,6 +57,13 @@ public class PressureController {
 
     @GetMapping("/sse")
     public SseEmitter streamPressureData() {
-        return emitter;  // 프론트엔드에 SSE 연결
+        SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);
+        emitters.add(emitter);
+
+        emitter.onCompletion(() -> emitters.remove(emitter));
+        emitter.onTimeout(() -> emitters.remove(emitter));
+        emitter.onError((e) -> emitters.remove(emitter));
+
+        return emitter;
     }
 }
