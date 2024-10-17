@@ -1,17 +1,18 @@
 package com.dasom.whick.controller;
 
-import com.dasom.whick.dto.BatteryDto;
 import com.dasom.whick.entity.Battery;
 import com.dasom.whick.repository.BatteryRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import com.fasterxml.jackson.databind.ObjectMapper; // JSON 변환을 위한 라이브러리 추가
 
 import jakarta.validation.Valid;
 import java.io.IOException;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @RestController
@@ -28,31 +29,30 @@ public class BatteryController {
     }
 
     @PostMapping
-    public ResponseEntity<String> receiveBattery(@Valid @RequestBody BatteryDto batteryDto, BindingResult bindingResult) {
+    public ResponseEntity<String> receiveBattery(@Valid @RequestBody Battery battery, BindingResult bindingResult) {
         // 유효성 검증 실패 시 처리
         if (bindingResult.hasErrors()) {
             String errorMessage = bindingResult.getAllErrors().get(0).getDefaultMessage();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
         }
 
-        // Battery 모델로 변환 후 저장
-        Battery battery = new Battery();
-        battery.setLevel(batteryDto.getLevel());
-        battery.setStatus(batteryDto.getStatus());
+        // Battery 엔티티 저장
         batteryRepository.save(battery);
 
         // 임계치 이하일 경우 SSE를 통해 프론트엔드로 알림 전송
         Integer batteryLevel = battery.getLevel();
         if (batteryLevel != null && batteryLevel < BATTERY_THRESHOLD) {
-            // 이벤트 이름을 지정하여 클라이언트가 특정 이벤트를 구독할 수 있도록 함
+            // 전송할 JSON 데이터 생성
+            String jsonData = createJsonData("Charge", true);
+
+            // SSE를 통해 JSON 데이터 전송
             emitters.forEach(emitter -> {
                 try {
                     emitter.send(SseEmitter.event()
                             .name("battery-event")
-                            .data(batteryDto));
+                            .data(jsonData, MediaType.APPLICATION_JSON));
                 } catch (IOException e) {
                     emitters.remove(emitter);
-                    // 로그를 남기거나 추가적인 에러 처리를 할 수 있습니다.
                     System.err.println("Failed to send SSE notification: " + e.getMessage());
                 }
             });
@@ -71,10 +71,28 @@ public class BatteryController {
         emitter.onTimeout(() -> emitters.remove(emitter));
         emitter.onError((e) -> {
             emitters.remove(emitter);
-            // 로그를 남기거나 추가적인 에러 처리를 할 수 있습니다.
             System.err.println("SseEmitter error: " + e.getMessage());
         });
 
         return emitter;
+    }
+
+    // JSON 데이터를 생성하는 헬퍼 메서드
+    private String createJsonData(String type, boolean insufficient) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            Map<String, Object> jsonMap = new HashMap<>();
+            jsonMap.put("type", type);
+
+            Map<String, Object> dataMap = new HashMap<>();
+            dataMap.put("insufficient", insufficient);
+
+            jsonMap.put("data", dataMap);
+
+            return objectMapper.writeValueAsString(jsonMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "{}";
+        }
     }
 }
