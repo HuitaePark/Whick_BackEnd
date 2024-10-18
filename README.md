@@ -1,17 +1,5 @@
 
 # Whick_BackEnd
-
-딥러닝을 이용한 자동 방향전환 전동휠체어 "휙"<br>
-9 / 16 레디스를 이용한 얼굴 인식 및 데이터 전송 구현
----
-실행 방법 
-1) redisAI.py를 실행시키면 얼굴인식 ai 가동
-2) 스프링 서버를 실행시키면 redisAI.py의 인식값이 스프링 콘솔에도 등록되는걸 확인
-
-
-
-
-주의) 레디스 서버가 실행되어 있어야함
 ---
 <!--배지-->
 ![MIT License][license-shield] ![Repository Size][repository-size-shield] ![Issue Closed][issue-closed-shield]
