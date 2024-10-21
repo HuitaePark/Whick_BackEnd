@@ -1,6 +1,6 @@
 
-# Whick_BackEnd
----
+# 인공지능을 이용한 얼굴인식 자동 방향전환 전동휠체어 시스템 "휙"
+
 <!--배지-->
 ![MIT License][license-shield] ![Repository Size][repository-size-shield] ![Issue Closed][issue-closed-shield]
 
