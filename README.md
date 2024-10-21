@@ -1,32 +1,18 @@
 
-# 인공지능을 이용한 얼굴인식 자동 방향전환 전동휠체어 시스템 "휙"
+> # 인공지능을 이용한 얼굴인식 자동 방향전환 전동휠체어 시스템 "휙"
 
+<div>
 <!--프로젝트 대문 이미지-->
 ![Project Title](image.png)
-
-
-<!--목차-->
-# Table of Contents
-- [[1] About the Project](#1-about-the-project)
-  - [Features](#features)
-  - [Technologies](#technologies)
-- [[2] Getting Started](#2-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-- [[3] Usage](#3-usage)
-- [[4] Contribution](#4-contribution)
-- [[5] Acknowledgement](#5-acknowledgement)
-- [[6] Contact](#6-contact)
-- [[7] License](#7-license)
+</div>
 
 
 
 # [1] About the Project
-- 고령화로 인해 매년 노인인구와 장애인 인구 증가
-- 그로 인한 휠체어 사용 인구도 매년 증가
-- 그중에서도 더욱더 몸이 불편하신 분들은 전동휠체어 조작에 어려움을 겪음
-- 이를 개선하기위햐서 '휙'을 개발하게 되었다.
+> 현재 대한민국은 고령화로 인해 매년 노인인구와 장애인 인구가 증가하고 있습니다.<br />
+> 또한 그로 인해 휠체어 사용 인구도 매년 증가하는 추세 입니다.<br />
+> 그중에서도 더욱더 몸이 불편하신 분들은 전동휠체어 조작에 어려움을 겪고 있습니다.<br />
+> 이를 개선하기위햐서 저희는 '휙'을 개발하게 되었습니다.<br />
 
 ## Features
 *강조하고 싶은 **주요 기능**이나 **차별성 있는 특징**을 적으세요.*
