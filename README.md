@@ -1,14 +1,9 @@
 
-# Whick_BackEnd
----
-<!--배지-->
-![MIT License][license-shield] ![Repository Size][repository-size-shield] ![Issue Closed][issue-closed-shield]
+# 인공지능을 이용한 얼굴인식 자동 방향전환 전동휠체어 시스템 "휙"
 
 <!--프로젝트 대문 이미지-->
-![Project Title](img/project-title.png)
+![Project Title](image.png)
 
-<!--프로젝트 버튼-->
- [![Readme in English][readme-eng-shield]][readme-eng-url] [![View Demo][view-demo-shield]][view-demo-url] [![Report bug][report-bug-shield]][report-bug-url] [![Request feature][request-feature-shield]][request-feature-url]
 
 <!--목차-->
 # Table of Contents
@@ -28,11 +23,10 @@
 
 
 # [1] About the Project
-*다음 내용을 고려하여 프로젝트에 대한 **전반적인 정보**를 적으세요.*
-
-- ❗️짧은❗️ 도입부/제작 동기
-- 무슨 프로젝트인지
-- 왜 이 프로젝트를 사용해야하는지
+- 고령화로 인해 매년 노인인구와 장애인 인구 증가
+- 그로 인한 휠체어 사용 인구도 매년 증가
+- 그중에서도 더욱더 몸이 불편하신 분들은 전동휠체어 조작에 어려움을 겪음
+- 이를 개선하기위햐서 '휙'을 개발하게 되었다.
 
 ## Features
 *강조하고 싶은 **주요 기능**이나 **차별성 있는 특징**을 적으세요.*
