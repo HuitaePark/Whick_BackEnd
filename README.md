@@ -27,6 +27,7 @@
 <br />
 
 ![noname01](https://github.com/user-attachments/assets/8e9502c6-f1b1-4951-a9c2-9836e298006e)
+<img width="1091" alt="스크린샷 2024-10-27 18 14 01" src="https://github.com/user-attachments/assets/17a89664-9b7c-4788-aef1-fb6f857f3c32">
 
 
 ## Technologies
