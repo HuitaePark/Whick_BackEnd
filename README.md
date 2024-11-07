@@ -71,7 +71,6 @@
 
 # Contact
 - 📧 qkrgmlox3174@gmail.com
-- 📋 [https://dev-ujin.github.io/contact](https://dev-ujin.github.io/contact)
 
 
 
