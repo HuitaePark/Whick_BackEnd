@@ -48,7 +48,7 @@
 - [Aduino](https://www.arduino.cc/) esp8266
 - [Micro:bit](https://m점
 
-## Back-end Architecture
+## Backend Architecture
 ## API
 ## 아쉬운점
 
