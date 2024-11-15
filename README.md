@@ -47,7 +47,13 @@
 - [Mediapipe](https://github.com/google-ai-edge/mediapipe) 6.5.0
 - [Aduino](https://www.arduino.cc/) esp8266
 - [Micro:bit](https://m점
-# Contact
+
+## Back-end Architecture
+## API
+## 아쉬운점
+
+
+## Contact
 - 📧 qkrgmlox3174@gmail.com
 
 
