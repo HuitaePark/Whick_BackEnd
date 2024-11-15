@@ -32,13 +32,16 @@
 
 ## Technologies
 
-### Back_end
+### Backend
 
 - [Gradle](https://gradle.org/) 8.10.2
 - [MariaDB](https://mariadb.org/) 11.4
 - [Spring](https://spring.io/) 3.3.5
 - [RedisCloud](https://redis.io/cloud/)
 
+### Frontend
+
+- [React](https://react.dev/) 18.3.1
 
 
 ### AI/Hardwere
