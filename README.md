@@ -46,8 +46,8 @@
 - [Python](https://www.python.org/) 3.9
 - [Mediapipe](https://github.com/google-ai-edge/mediapipe) 6.5.0
 - [Aduino](https://www.arduino.cc/) esp8266
-- [Micro:bit](https://m점
-
+- [Micro:bit](https://microbit.org/ko/) 
+## Usage
 ## Backend Architecture
 ## API
 ## 아쉬운점
