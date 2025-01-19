@@ -51,9 +51,14 @@
 - [Aduino](https://www.arduino.cc/) esp8266
 - [Micro:bit](https://microbit.org/ko/) 
 ## Usage
+![booth](img/KakaoTalk_Photo_2024-12-05-14-38-38.jpeg)
+*실제 부스를 체험하는 모습* 
+
 ## Backend Architecture
 ## API
 ## 아쉬운점
+공간상의 이유와 안전상의 이유로 모형 조작으로 대체하여 제작한게 아쉽습니다.<br>
+기회가 된다면 실제 휠체어에 우리의 시스템을 장착하고 실제 서비스를 해보고 싶습니다.
 
 
 ## Contact
