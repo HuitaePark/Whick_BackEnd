@@ -31,53 +31,43 @@
 
 
 ## Technologies
-***언어, 프레임워크, 주요 라이브러리**를 **버전**과 함께 나열하세요.*
 
-- [Maven](https://maven.apache.org/) 3.6.3
-- [MySQL](https://www.mysql.com/) 8.0
-- [Spring](https://spring.io/) 2.4.3
+### Backend
 
+- [Gradle](https://gradle.org/) 8.10.2
+- [MariaDB](https://mariadb.org/) 11.4
+- [Spring](https://spring.io/) 3.3.5
+- [RedisCloud](https://redis.io/cloud/)
 
+### Frontend
 
-# Usage
-***스크린샷, 코드** 등을 통해 **사용 방법**과 **사용 예제**를 보여주세요. 사용 예제별로 h2 헤더로 나누어 설명할 수 있습니다.*
-
-![usage](img/usage.png)
-
-```java
-// 몇 개의 API 사용 예제를 코드와 함께 보여주세요.
-```
+- [React](https://react.dev/) 18.3.1
 
 
+### AI/Hardwere
 
-# Contribution
-기여해주신 모든 분들께 대단히 감사드립니다.[`contributing guide`][contribution-url]를 참고해주세요.
-이 프로젝트의 기여하신 분들을 소개합니다! 🙆‍♀️
-*이모티콘 쓰는 것을 좋아한다면, 버그 수정에 🐞, 아이디어 제공에 💡, 새로운 기능 구현에 ✨를 사용할 수 있습니다.*
-- 🐞 [dev-ujin](https://github.com/dev-ujin): 메인페이지 버그 수정
+- [Python](https://www.python.org/) 3.9
+- [Mediapipe](https://github.com/google-ai-edge/mediapipe) 6.5.0
+- [Aduino](https://www.arduino.cc/) esp8266
+- [Micro:bit](https://microbit.org/ko/) 
+## Usage
+![booth](img/KakaoTalk_Photo_2024-12-05-14-38-38.jpeg)
+*실제 부스를 체험하는 모습* 
+
+## Backend Architecture
+## API
+## 아쉬운점
+공간상의 이유와 안전상의 이유로 모형 조작으로 대체하여 제작하게 된게 아쉽습니다.<br>
+부스 체험 이미지에서 보다싶이 실제로 휠체어를 조작하는것처럼 왼쪽엔 opencv 화면을, 웹 가운데에 휠체어 모형의 모습을 볼수 있게 하였습니다.<br>
+기회가 된다면 실제 휠체어에 우리의 시스템을 장착하고 실제 서비스를 해보고 싶습니다.
 
 
-
-# Acknowledgement
-***유사한 프로젝트의 레포지토리** 혹은 **블로그 포스트** 등 프로젝트 구현에 영감을 준 출처에 대해 링크를 나열하세요.*
-
-- [Readme Template - Embedded Artistry](https://embeddedartistry.com/blog/2017/11/30/embedded-artistry-readme-template/)
-- [How to write a kickass Readme - James.Scott](https://dev.to/scottydocs/how-to-write-a-kickass-readme-5af9)
-- [Best-README-Template - othneildrew](https://github.com/othneildrew/Best-README-Template#prerequisites)
-- [Img Shields](https://shields.io/)
-- [Github Pages](https://pages.github.com/)
+## Contact
+- 📧 qkrgmlox3174@gmail.com
 
 
 
-# Contact
-- 📧 dev.ujin518@gmail.com
-- 📋 [https://dev-ujin.github.io/contact](https://dev-ujin.github.io/contact)
 
-
-
-# License
-MIT 라이센스
-라이센스에 대한 정보는 [`LICENSE`][license-url]에 있습니다.
 
 
 
