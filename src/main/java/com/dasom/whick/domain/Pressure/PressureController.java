@@ -1,7 +1,5 @@
-package com.dasom.whick.controller;
+package com.dasom.whick.domain.Pressure;
 
-import com.dasom.whick.entity.Pressure;
-import com.dasom.whick.repository.PressureRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.MediaType;

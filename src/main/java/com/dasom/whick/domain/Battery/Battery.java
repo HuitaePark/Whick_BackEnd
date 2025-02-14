@@ -1,4 +1,4 @@
-package com.dasom.whick.entity;
+package com.dasom.whick.domain.Battery;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,10 +10,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Pressure {
+public class Battery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer pressure;
+    private Integer level;
     private String status;
 }

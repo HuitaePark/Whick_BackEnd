@@ -1,4 +1,4 @@
-package com.dasom.whick.config;
+package com.dasom.whick.global.config;
 
 
 import org.springframework.context.annotation.Configuration;

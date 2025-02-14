@@ -1,6 +1,6 @@
-package com.dasom.whick.redis;
+package com.dasom.whick.global.config;
 
-import com.dasom.whick.service.DirectionService;
+import com.dasom.whick.domain.Direction.DirectionService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.*;

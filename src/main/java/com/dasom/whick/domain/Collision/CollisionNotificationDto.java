@@ -1,4 +1,4 @@
-package com.dasom.whick.dto;
+package com.dasom.whick.domain.Collision;
 
 import lombok.Getter;
 import lombok.Setter;

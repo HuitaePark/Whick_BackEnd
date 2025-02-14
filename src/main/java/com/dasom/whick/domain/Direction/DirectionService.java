@@ -1,7 +1,5 @@
-package com.dasom.whick.service;
+package com.dasom.whick.domain.Direction;
 
-import com.dasom.whick.dto.DirectionData;
-import com.dasom.whick.dto.DirectionEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import org.springframework.stereotype.Service;

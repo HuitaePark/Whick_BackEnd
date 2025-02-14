@@ -1,8 +1,5 @@
-package com.dasom.whick.controller;
+package com.dasom.whick.domain.Collision;
 
-import com.dasom.whick.dto.CollisionNotificationDto;
-import com.dasom.whick.entity.Collision;
-import com.dasom.whick.repository.CollisionRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;

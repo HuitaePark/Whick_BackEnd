@@ -1,7 +1,5 @@
-package com.dasom.whick.controller;
+package com.dasom.whick.domain.Battery;
 
-import com.dasom.whick.entity.Battery;
-import com.dasom.whick.repository.BatteryRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.MediaType;

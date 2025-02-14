@@ -1,4 +1,4 @@
-package com.dasom.whick.dto;
+package com.dasom.whick.domain.Direction;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,13 +17,4 @@ public class DirectionData {
         this.right = right;
     }
 
-    // Getters and Setters
-
-    @Override
-    public String toString() {
-        return "DirectionData{" +
-                "left=" + left +
-                ", right=" + right +
-                '}';
-    }
 }

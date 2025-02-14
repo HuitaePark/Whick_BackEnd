@@ -1,6 +1,5 @@
-package com.dasom.whick.controller;
+package com.dasom.whick.domain.Direction;
 
-import com.dasom.whick.service.DirectionService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;

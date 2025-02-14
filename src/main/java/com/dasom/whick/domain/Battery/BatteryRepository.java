@@ -1,6 +1,5 @@
-package com.dasom.whick.repository;
+package com.dasom.whick.domain.Battery;
 
-import com.dasom.whick.entity.Battery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
