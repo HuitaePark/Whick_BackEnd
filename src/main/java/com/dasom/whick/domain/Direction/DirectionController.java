@@ -14,7 +14,7 @@ public class DirectionController {
     }
 
     /**
-     * 클라이언트가 SSE 연결을 요청할 때 호출됩니다.
+     * 클라이언트가 SSE 연결을 요청할 때 호출
      *
      * @return SseEmitter 객체
      */

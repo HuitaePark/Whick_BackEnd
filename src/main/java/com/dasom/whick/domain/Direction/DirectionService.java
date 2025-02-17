@@ -1,5 +1,6 @@
 package com.dasom.whick.domain.Direction;
 
+import com.dasom.whick.domain.Direction.Dto.DirectionEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class DirectionService {
     private final ObjectMapper objectMapper = new ObjectMapper(); // Jackson ObjectMapper 사용
 
     /**
-     * SSE 클라이언트를 등록합니다.
+     * SSE 클라이언트를 등록
      *
      * @return SseEmitter 객체
      */
@@ -33,7 +34,7 @@ public class DirectionService {
     }
 
     /**
-     * Redis에서 수신한 메시지를 처리합니다.
+     * Redis에서 수신한 메시지를 처리
      *
      * @param message Redis에서 수신한 메시지
      */

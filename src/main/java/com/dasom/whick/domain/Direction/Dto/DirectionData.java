@@ -1,4 +1,4 @@
-package com.dasom.whick.domain.Direction;
+package com.dasom.whick.domain.Direction.Dto;
 
 import lombok.Getter;
 import lombok.Setter;

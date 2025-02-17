@@ -23,7 +23,7 @@ public class CollisionController {
     }
 
     /**
-     * 충돌 데이터를 수신하여 저장하고, 위험이 감지되면 SSE를 통해 알림을 보냅니다.
+     * 충돌 데이터를 수신하여 저장하고, 위험이 감지되면 SSE를 통해 알림을 보냄
      */
     @PostMapping
     public ResponseEntity<String> receiveCollision(@RequestBody CollisionNotificationDto collisionDto) {
@@ -46,7 +46,7 @@ public class CollisionController {
     }
 
     /**
-     * 클라이언트가 SSE 연결을 요청하면 SseEmitter를 생성하여 리스트에 추가합니다.
+     * 클라이언트가 SSE 연결을 요청하면 SseEmitter를 생성하여 리스트에 추가
      */
     @GetMapping("/sse")
     public SseEmitter streamCollisionData() {
@@ -61,7 +61,7 @@ public class CollisionController {
     }
 
     /**
-     * 모든 연결된 클라이언트에게 충돌 알림을 전송합니다.
+     * 모든 연결된 클라이언트에게 충돌 알림을 전송
      */
     private void sendCollisionNotification(CollisionNotificationDto collisionDto) {
         List<SseEmitter> deadEmitters = new CopyOnWriteArrayList<>();
